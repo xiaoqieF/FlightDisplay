@@ -7,11 +7,11 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     public bool enable = true;
-    public GameObject panel;
+    public CanvasGroup canvas;
     // Start is called before the first frame update
     void Start()
     {
-        panel = GameObject.Find("Panel");
+        canvas = GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
@@ -19,7 +19,15 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1)) {
             enable = !enable;
-            panel.SetActive(enable);
+            if (enable) {
+                canvas.alpha = 1;
+                canvas.interactable = true;
+                canvas.blocksRaycasts = true;
+            } else {
+                canvas.alpha = 0;
+                canvas.interactable = false;
+                canvas.blocksRaycasts = false;
+            }
         }
     }
 }
