@@ -62,28 +62,28 @@ public class OnReceiveBtn : MonoBehaviour
         blueAircraftTrans.position = new Vector3(msg.blue.x / scale, msg.blue.z / scale, - msg.blue.y / scale);
         blueF16Trans.localEulerAngles = new Vector3(-msg.blue.roll, msg.blue.yaw, msg.blue.pitch);
         if (msg.red.missile1.valid) {
-            Debug.Log("red missile1 launch");
+            // Debug.Log("red missile1 launch");
             redMissile1Trans.position = 
                     new Vector3(msg.red.missile1.x / scale, msg.red.missile1.z / scale, -msg.red.missile1.y / scale);
             redMissile1Trans.localEulerAngles = 
                     new Vector3(-msg.red.missile1.roll, msg.red.missile1.yaw, msg.red.missile1.pitch);
         }
         if (msg.red.missile2.valid) {
-            Debug.Log("red missile2 launch");
+            // Debug.Log("red missile2 launch");
             redMissile2Trans.position = 
                     new Vector3(msg.red.missile2.x / scale, msg.red.missile2.z / scale, -msg.red.missile2.y / scale);
             redMissile2Trans.localEulerAngles = 
                     new Vector3(-msg.red.missile2.roll, msg.red.missile2.yaw, msg.red.missile2.pitch);
         }
         if (msg.blue.missile1.valid) {
-            Debug.Log("blue missile1 launch");
+            // Debug.Log("blue missile1 launch");
             blueMissile1Trans.position = 
                     new Vector3(msg.blue.missile1.x / scale, msg.blue.missile1.z / scale, -msg.blue.missile1.y / scale);
             blueMissile1Trans.localEulerAngles = 
                     new Vector3(-msg.blue.missile1.roll, msg.blue.missile1.yaw, msg.blue.missile1.pitch);
         }
         if (msg.blue.missile2.valid) {
-            Debug.Log("blue missile2 launch");
+            // Debug.Log("blue missile2 launch");
             blueMissile2Trans.position = 
                     new Vector3(msg.blue.missile2.x / scale, msg.blue.missile2.z / scale, -msg.blue.missile2.y / scale);
             blueMissile2Trans.localEulerAngles = 
@@ -94,7 +94,7 @@ public class OnReceiveBtn : MonoBehaviour
     // udp数据接收后处理函数(用于回调)
     public void HandleData(byte[] data, int len) {
         content = System.Text.Encoding.UTF8.GetString(data, 0, len);
-        Debug.Log(content);
+        // Debug.Log(content);
         msg = JsonUtility.FromJson<Message>(content);
     }
 
